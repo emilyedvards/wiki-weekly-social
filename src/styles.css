@@ -1,0 +1,497 @@
+:root {
+  --ink: #050505;
+  --muted: #555;
+  --rule: #111;
+  --wiki-blue: #0000ee;
+  --paper: #fff;
+  --app-bg: #f5f5f5;
+  --sans: Arial, Helvetica, sans-serif;
+  --serif: Georgia, 'Times New Roman', Times, serif;
+}
+
+@font-face {
+  font-family: 'Noseblood';
+  src: url('/fonts/noseblood.otf') format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Thinman';
+  src: url('/fonts/thinman.ttf') format('truetype');
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--app-bg);
+  color: var(--ink);
+  font-family: var(--sans);
+}
+
+button,
+select {
+  font: 16px/1.2 var(--sans);
+  color: var(--ink);
+  background: #fff;
+}
+
+button {
+  min-height: 42px;
+  border: 2px solid var(--ink);
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+select {
+  width: 100%;
+  min-height: 42px;
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  padding: 0 10px;
+}
+
+.app-shell {
+  min-height: 100vh;
+  padding: 26px 34px 42px;
+}
+
+.app-header {
+  max-width: 1340px;
+  margin: 0 auto;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.app-header h1 {
+  margin: 0 0 14px;
+  font-size: 38px;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.app-header p {
+  margin: 0 0 14px;
+  font-size: 13px;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr);
+  gap: 38px;
+  max-width: 1340px;
+  margin: 22px auto 0;
+}
+
+.controls {
+  padding-right: 38px;
+  border-right: 1px solid var(--ink);
+}
+
+.controls label {
+  display: block;
+  margin-bottom: 22px;
+}
+
+.controls span {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.button-stack {
+  display: grid;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.preview-panel {
+  min-width: 0;
+}
+
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.preview-stage {
+  background: #fff;
+  outline: 1px solid var(--ink);
+  overflow: hidden;
+}
+
+.preview-scaler {
+  width: max-content;
+  height: max-content;
+  transform-origin: top left;
+}
+
+.export-host {
+  position: fixed;
+  left: -10000px;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.social-template {
+  position: relative;
+  overflow: hidden;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  letter-spacing: 0;
+}
+
+.social-template h1,
+.social-template h2,
+.social-template p {
+  margin: 0;
+}
+
+.template-date {
+  font-size: 30px;
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+.template-rule {
+  width: 100%;
+  height: 3px;
+  background: var(--rule);
+}
+
+.site-footer {
+  position: absolute;
+  left: 50%;
+  bottom: var(--margin-bottom);
+  transform: translateX(-50%);
+  color: var(--wiki-blue);
+  font-style: italic;
+  font-family: var(--sans);
+  font-size: 32px;
+  line-height: 1;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.article-image {
+  display: block;
+  object-fit: contain;
+  filter: grayscale(1) contrast(1.02);
+  border: 0;
+  background: #fff;
+}
+
+.views {
+  font-family: var(--sans);
+  font-size: 36px;
+  line-height: 1.2;
+}
+
+.extract {
+  font-family: var(--sans);
+  font-size: 28px;
+  line-height: 1.38;
+}
+
+.empty-template-message {
+  max-width: 780px;
+  margin: 42px auto 0;
+  font-family: var(--sans);
+  font-size: 30px;
+  line-height: 1.35;
+}
+
+.twow-template-head {
+  margin: 0 0 48px;
+  text-align: center;
+}
+
+.twow-logo {
+  font-family: 'Noseblood', Arial, Helvetica, sans-serif;
+  font-size: 72px;
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+.twow-kicker {
+  margin-top: 18px;
+  font-size: 25px;
+  line-height: 1.25;
+}
+
+.top-page-45 {
+  --margin: 78px;
+  --margin-bottom: 70px;
+  display: block;
+  padding: 68px var(--margin);
+  text-align: center;
+}
+
+.top-page-45 .template-copy {
+  min-width: 0;
+}
+
+.top-page-45 h1 {
+  max-width: 880px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 14px;
+  font-family: var(--sans);
+  font-size: 42px;
+  line-height: 1.22;
+  font-weight: 400;
+}
+
+.top-page-45 .template-rule {
+  margin: 24px 0 26px;
+  height: 2px;
+}
+
+.top-page-45 h2 {
+  margin-top: 36px;
+  font-family: var(--sans);
+  font-size: 56px;
+  line-height: 1.05;
+  font-weight: 400;
+  color: var(--wiki-blue);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.13em;
+  overflow-wrap: anywhere;
+}
+
+.top-page-45 .views {
+  margin-top: 8px;
+}
+
+.top-page-45 .extract {
+  max-width: 820px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 22px;
+  font-size: 30px;
+}
+
+.top-page-45 .article-image {
+  width: 520px;
+  height: 420px;
+  margin: 38px auto 0;
+}
+
+.top-page-45.no-thumbnail {
+  padding-right: var(--margin);
+}
+
+.top-page-45.no-thumbnail h1,
+.top-page-45.no-thumbnail .extract {
+  max-width: 780px;
+}
+
+.top-page-916 {
+  --margin: 82px;
+  --margin-bottom: 112px;
+  padding: 108px var(--margin);
+  text-align: center;
+}
+
+.top-page-916 .template-date {
+  font-size: 34px;
+}
+
+.top-page-916 h1 {
+  max-width: 850px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 18px;
+  font-family: var(--sans);
+  font-size: 52px;
+  line-height: 1.22;
+  font-weight: 400;
+}
+
+.top-page-916 .template-rule {
+  margin: 34px 0 58px;
+  height: 2px;
+}
+
+.top-page-916 .article-image {
+  width: 680px;
+  height: 610px;
+  margin: 0 auto 64px;
+}
+
+.top-page-916 .story-copy {
+  position: relative;
+}
+
+.top-page-916 h2 {
+  font-family: var(--sans);
+  font-size: 68px;
+  line-height: 1.04;
+  font-weight: 400;
+  color: var(--wiki-blue);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.13em;
+  overflow-wrap: anywhere;
+}
+
+.top-page-916 .views {
+  margin-top: 14px;
+  font-size: 43px;
+}
+
+.top-page-916 .extract {
+  max-width: 850px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 40px;
+  font-size: 39px;
+  line-height: 1.32;
+}
+
+.ranking-template {
+  --margin: 82px;
+  --margin-bottom: 112px;
+  padding: 108px var(--margin);
+  text-align: center;
+}
+
+.ranking-template .template-date {
+  font-size: 34px;
+}
+
+.ranking-template h1 {
+  max-width: 820px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 18px;
+  font-family: var(--sans);
+  font-size: 52px;
+  line-height: 1.22;
+  font-weight: 400;
+}
+
+.ranking-template .template-rule {
+  margin: 36px 0 34px;
+  height: 2px;
+}
+
+.ranking-list {
+  display: grid;
+  gap: 0;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  border: 2px solid #000;
+  text-align: left;
+}
+
+.ranking-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 84px minmax(0, 1fr) 250px;
+  gap: 0;
+  align-items: center;
+  min-height: 94px;
+  padding: 0;
+  border-bottom: 2px solid #000;
+}
+
+.ranking-row:last-child {
+  border-bottom: 0;
+}
+
+.rank {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  align-self: stretch;
+  padding-right: 24px;
+  font-family: var(--sans);
+  font-size: 32px;
+  line-height: 1.15;
+  font-variant-numeric: tabular-nums;
+}
+
+.ranking-title {
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  min-width: 0;
+  padding: 14px 18px 14px 0;
+  font-family: var(--sans);
+  font-size: 31px;
+  line-height: 1.18;
+  text-align: left;
+  font-weight: 400;
+  color: var(--wiki-blue);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.13em;
+  overflow-wrap: anywhere;
+}
+
+.ranking-views {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  align-self: stretch;
+  padding: 0 24px 0 10px;
+  text-align: right;
+  font-family: var(--sans);
+  font-size: 27px;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.empty-ranking-row {
+  grid-template-columns: 1fr;
+}
+
+.ranking-empty {
+  display: flex;
+  align-items: center;
+  min-height: 120px;
+  padding: 24px;
+  font-family: var(--sans);
+  font-size: 28px;
+  line-height: 1.25;
+}
+
+@media (max-width: 980px) {
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .controls {
+    padding-right: 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 22px;
+  }
+}
